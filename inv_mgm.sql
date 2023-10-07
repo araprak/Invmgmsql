@@ -1,3 +1,6 @@
+-- Create Database Inventory Management
+CREATE DATABASE inv_mgm;
+
 -- Create tables in the 'inv_mgm' database
 CREATE TABLE inv_mgm.brands (
     bid INT(5), 

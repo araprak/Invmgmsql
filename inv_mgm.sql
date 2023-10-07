@@ -1,23 +1,49 @@
 -- Create tables in the 'inv_mgm' database
-CREATE TABLE `inv_mgm`.`brands` (bid INT(5), bname VARCHAR(20));
+CREATE TABLE inv_mgm.brands (
+    bid INT(5), 
+    bname VARCHAR(20)
+);
 
-ALTER TABLE `inv_mgm`.`brands` ADD PRIMARY KEY (bid);
+ALTER TABLE inv_mgm.brands
+ADD PRIMARY KEY (bid);
 
-CREATE TABLE `inv_mgm`.`inv_user` (user_id VARCHAR(20),name VARCHAR(20),password VARCHAR(20),last_login TIMESTAMP,user_type VARCHAR(10));
+CREATE TABLE inv_mgm.inv_user(
+    user_id VARCHAR(20),
+    name VARCHAR(20),
+    password VARCHAR(20),
+    last_login TIMESTAMP,
+    user_type VARCHAR(10)
+);
 
-CREATE TABLE `inv_mgm`.`categories` (cid INT(5),category_name VARCHAR(20));
+CREATE TABLE inv_mgm.categories(
+    cid INT(5),
+    category_name VARCHAR(20)
+);
 
-ALTER TABLE `inv_mgm`.`categories` ADD PRIMARY KEY (cid);
+ALTER TABLE inv_mgm.categories
+ADD PRIMARY KEY (cid);
 
-ALTER TABLE `inv_mgm`.`inv_user` ADD PRIMARY KEY (user_id);
+ALTER TABLE inv_mgm.inv_user
+ADD PRIMARY KEY (user_id);
 
-CREATE TABLE `inv_mgm`.`stores` (sid INT(5),sname VARCHAR(20),address VARCHAR(20),mobno BIGINT(10));
+CREATE TABLE inv_mgm.stores(
+    sid INT(5),
+    sname VARCHAR(20),
+    address VARCHAR(20),
+    mobno BIGINT(10)
+);
 
-ALTER TABLE `inv_mgm`.`stores` ADD PRIMARY KEY (sid);
+ALTER TABLE inv_mgm.stores
+ADD PRIMARY KEY (sid);
 
-ALTER TABLE `inv_mgm`.`product` ADD FOREIGN KEY (sid) REFERENCES inv_mgm.stores(sid);
+ALTER TABLE inv_mgm.product
+ADD FOREIGN KEY (sid) REFERENCES inv_mgm.stores(sid);
 
-CREATE TABLE `inv_mgm`.`provides` (bid INT(5) REFERENCES inv_mgm.brands(bid),sid INT(5) REFERENCES inv_mgm.stores(sid),discount INT(5));
+CREATE TABLE inv_mgm.provides(
+    bid INT(5) REFERENCES inv_mgm.brands(bid),
+    sid INT(5) REFERENCES inv_mgm.stores(sid),
+    discount INT(5)
+);
 
 CREATE TABLE inv_mgm.customer_cart (
     cust_id INT(5) PRIMARY KEY,
@@ -53,28 +79,28 @@ CREATE TABLE inv_mgm.invoice (
 -- Insert data into tables in the 'inv_mgm' database
 -- Brands
 INSERT INTO inv_mgm.brands (bid, bname) VALUES
-(1, 'Apple'),
-(2, 'Samsung'),
-(3, 'Nike'),
-(4, 'Fortune');
+(1, 'Company 1'),
+(2, 'Company 2'),
+(3, 'Company 3'),
+(4, 'Company 4');
 
 -- Inv_user
 INSERT INTO inv_mgm.inv_user (user_id, name, password, last_login, user_type) VALUES
-('vidit@gmail.com', 'Vidit', '1234', '2018-10-31 12:40:00', 'admin'),
-('harsh@gmail.com', 'Harsh Khanelwal', '1111', '2018-10-30 10:20:00', 'Manager'),
-('prashant@gmail.com', 'Prashant', '0011', '2018-10-29 10:20:00', 'Accountant');
+('email_id 1', 'Name1', 'Password', 'YYYY-MM-DD HH:MM:SS', 'User_role 1'),
+('email_id 2', 'Name2', 'Password', 'YYYY-MM-DD HH:MM:SS', 'User_role 2'),
+('email_id 3', 'Name3', 'Password', 'YYYY-MM-DD HH:MM:SS', 'User_role 3'),
 
 -- Categories
 INSERT INTO inv_mgm.categories (cid, category_name) VALUES
-(1, 'Electronics'),
-(2, 'Clothing'),
-(3, 'Grocery');
+(1, 'Category 1'),
+(2, 'Category 2'),
+(3, 'Category 3');
 
 -- Stores
 INSERT INTO inv_mgm.stores (sid, sname, address, mobno) VALUES
-(1, 'Ram Kumar', 'Katpadi Vellore', 9999999999),
-(2, 'Rakesh Kumar', 'Chennai', 8888555541),
-(3, 'Suraj', 'Haryana', 7777555541);
+(1, 'Name 1', 'City 1', 'Phone Number 1'),
+(2, 'Name 2', 'City 2', 'Phone Number 2'),
+(3, 'Name 3', 'City 3', 'Phone Number 3');
 
 -- Products
 INSERT INTO inv_mgm.product (pid, cid, bid, sid, pname, p_stock, price, added_date) VALUES

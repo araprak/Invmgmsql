@@ -148,7 +148,7 @@ INSERT INTO inv_mgm.invoice (item_no, product_name, quantity, net_price, transac
 
 -- 1. PL/SQL Block to retrieve 'due' value
 DELIMITER //
-CREATE PROCEDURE GetDue(IN c_id INT)
+CREATE PROCEDURE inv_mgm.GetDue(IN c_id INT)
 BEGIN
     DECLARE due1 INT;
     DECLARE cart_id1 INT;
@@ -162,11 +162,11 @@ END;
 DELIMITER ;
 
 -- Example usage of the stored procedure
-CALL GetDue(1);
+CALL inv_mgm.GetDue(1);
 
 -- 2. PL/SQL Block to display product information using a cursor
 DELIMITER //
-CREATE PROCEDURE DisplayProducts()
+CREATE PROCEDURE inv_mgm.DisplayProducts()
 BEGIN
     DECLARE p_id INT;
     DECLARE p_name VARCHAR(20);
@@ -198,11 +198,11 @@ END;
 DELIMITER ;
 
 -- Example usage of the stored procedure
-CALL DisplayProducts();
+CALL inv_mgm.DisplayProducts();
 
 -- 3. PL/SQL Block to check stock
 DELIMITER //
-CREATE PROCEDURE CheckStock(IN b INT)
+CREATE PROCEDURE inv_mgm.CheckStock(IN b INT)
 BEGIN
     DECLARE a INT;
     

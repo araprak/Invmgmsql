@@ -29,6 +29,17 @@ ADD PRIMARY KEY (cid);
 ALTER TABLE inv_mgm.inv_user
 ADD PRIMARY KEY (user_id);
 
+CREATE TABLE inv_mgm.product(
+	pid INT(5) primary key,
+    cid INT(5) references categories(cid),
+    bid INT(5) references brands(bid),
+    sid INT(5),
+    pname varchar(20),
+    p_stock INT(5),
+    price INT(5),
+    added_date date
+);
+
 CREATE TABLE inv_mgm.stores(
     sid INT(5),
     sname VARCHAR(20),
@@ -91,7 +102,7 @@ INSERT INTO inv_mgm.brands (bid, bname) VALUES
 INSERT INTO inv_mgm.inv_user (user_id, name, password, last_login, user_type) VALUES
 ('email_id 1', 'Name1', 'Password', 'YYYY-MM-DD HH:MM:SS', 'User_role 1'),
 ('email_id 2', 'Name2', 'Password', 'YYYY-MM-DD HH:MM:SS', 'User_role 2'),
-('email_id 3', 'Name3', 'Password', 'YYYY-MM-DD HH:MM:SS', 'User_role 3'),
+('email_id 3', 'Name3', 'Password', 'YYYY-MM-DD HH:MM:SS', 'User_role 3');
 
 -- Categories
 INSERT INTO inv_mgm.categories (cid, category_name) VALUES

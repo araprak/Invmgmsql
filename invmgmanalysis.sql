@@ -15,3 +15,15 @@ GROUP BY b.bname;
 SELECT t.id, (t.paid - t.total_amount) AS net_profit
 FROM inv_mgm.transaction t;
 
+-- Identify products with low stock
+SELECT p.pname, p.p_stock
+FROM inv_mgm.product p
+WHERE p.p_stock < 5;
+
+-- Generate a report of top-selling products
+SELECT p.pname, SUM(sp.quantity) AS total_quantity_sold
+FROM inv_mgm.product p
+JOIN inv_mgm.select_product sp ON p.pid = sp.pid
+GROUP BY p.pname
+ORDER BY total_quantity_sold DESC
+LIMIT 5;

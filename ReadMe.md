@@ -72,7 +72,7 @@ The analysis SQL file performs these analyses.
    - The query calculates the total quantity sold (`total_quantity_sold`) for each product by summing the quantities purchased across all transactions.
    - The results are then ordered in descending order of total quantity sold (`ORDER BY total_quantity_sold DESC`) and limited to the top 5 products (`LIMIT 5`).
 
-These SQL queries demonstrate various data analysis tasks, including summarizing sales data, calculating averages, identifying low-stock products, and generating reports of top-selling products, which can be valuable skills for a data analyst role.
+These SQL queries show various data analysis tasks, including summarizing sales data, calculating averages, identifying low-stock products, and generating reports of top-selling products, which can be valuable skills for a data analyst role.
 
 ## Conclusion
 

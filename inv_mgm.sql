@@ -100,7 +100,7 @@ INSERT INTO inv_mgm.brands (bid, bname) VALUES
 
 -- Inv_user
 INSERT INTO inv_mgm.inv_user (user_id, name, password, last_login, user_type) VALUES
-('email_id 1', 'Name1', 'Password', 'YYYY-MM-DD HH:MM:SS', 'User_role 1'),
+('email_id 1', 'Name1', 'Password', '%Y-%M-%D', '%User1'),
 ('email_id 2', 'Name2', 'Password', 'YYYY-MM-DD HH:MM:SS', 'User_role 2'),
 ('email_id 3', 'Name3', 'Password', 'YYYY-MM-DD HH:MM:SS', 'User_role 3');
 
